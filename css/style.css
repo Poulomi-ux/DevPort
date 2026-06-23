@@ -1,0 +1,120 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #0077b6;
+    --tab-bg: #d7ddff8a;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --tab-bg:#111827;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+/* Blue Theme */
+.theme-blue {
+    --bg-color: #e7f5ff;
+    --text-color: #003566;
+    --primary-color: #0077b6;
+}
+
+/* Green Theme */
+.theme-green {
+    --bg-color: #f1f8e9;
+    --text-color: #1b4332;
+    --primary-color: #2d6a4f;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between
+}
+.logo{
+    white-space:nowrap;
+}
+.logo a{
+    text-decoration:none;
+    font-weight:700;
+    font-size:24px;
+}
+.logo a span{
+    color:var(--text-color)
+}
+.logo a i{
+    color:var(--primary-color)
+}
+.menu ul{
+    display:flex;
+    gap: 2rem;
+    padding-top: 0.5rem;
+}
+.menu ul li{
+    list-style:none;
+}
+.menu ul li a{
+    text-decoration:none;
+    color:var(--text-color);
+}
+.rightitems{
+     gap:2rem;
+}
+.righticons{
+    padding-top: 12px;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.btn-custom{
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    height: 3rem;
+    color:var(--text-color);
+     box-shadow:
+        0 0 15px rgba(108, 99, 255, 0.25),
+        inset 0 0 10px rgba(108, 99, 255, 0.1);
+
+    transition: all 0.3s ease;
+}
+.btn-custom:hover{
+     border-radius: 14px;
+    border: 1px solid var(--primary-color);
+    height: 3rem;
+     box-shadow:
+        0 0 15px rgba(108, 99, 255, 0.25),
+        inset 0 0 10px rgba(108, 99, 255, 0.1);
+
+    transition: all 0.3s ease;
+}
+.tab-title{
+    text-transform:uppercase;
+    color:var(--primary-color);
+    font-weight:600;
+}
+.tab-subtitle span{
+    color:var(--primary-color);
+}
+
+
+.tab-btn.active {
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6
+    );
+}
+.portfolio-tabs{
+    float:right;
+}
+.tab-btn {
+    padding: 6px 22px;
+    border: 1px solid var(--primary-color);
+    background: var(--tab-bg);
+    color: var(--text-color);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+}
