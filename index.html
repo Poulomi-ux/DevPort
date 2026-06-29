@@ -8,9 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+ 
 </head>
 
 <body class="dark-mode">
@@ -49,48 +50,63 @@
                             A collection of projects that showcase my skills,problem-solving abilities, and passion for building modern web applications.
                         </p>
                     </div>
-                    <div class="col-md-8">
-                        <div class="portfolio-tabs mt-5">
-                            <button class="tab-btn active" data-filter="all">All</button>
-                            <button class="tab-btn" data-filter="web">Web Apps</button>
-                            <button class="tab-btn" data-filter="mobile">Mobile Apps</button>
-                            <button class="tab-btn" data-filter="backend">Backend</button>
-                            <button class="tab-btn" data-filter="uiux">UI/UX</button>
+                    <div class="col-md-8 d-flex justify-content-end">
+                       <div class="category-buttons mt-5">
+                            <button class="tab-btn active" onclick="showCategory('web', this)">
+                                Web Design
+                            </button>
+                            <button class="tab-btn" onclick="showCategory('mobile', this)">
+                                Mobile App
+                            </button>
+                            <button class="tab-btn" onclick="showCategory('api', this)">
+                                REST API
+                            </button>
                         </div>
+                    </div>
                         
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="portfolio-grid mt-3">
-
-                            <div class="project-card web">
-                                Analytics Dashboard
+                      <div id="web" class="category active">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="showcase">
+                                    test1
+                                </div>
                             </div>
-
-                            <div class="project-card mobile">
-                                Food Delivery App
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                  <div class="owl-carousel">
+                                    <div class="item">1</div>
+                                    <div class="item">2</div>
+                                    <div class="item">3</div>
+                                    <div class="item">4</div>
+                             </div>
                             </div>
+                        </div>
+                          
+                       </div>
+                        <div id="mobile" class="category">
+                            <h2>Mobile App Projects</h2>
+                            <p>Android app UI, Food delivery app, Fitness app, etc.</p>
+                        </div>
 
-                            <div class="project-card backend">
-                                REST API Project
-                            </div>
-
-                            <div class="project-card uiux">
-                                Figma Design
-                            </div>
-
-                            <div class="project-card web">
-                                E-commerce Website
-                            </div>
-
+                        <div id="api" class="category">
+                            <h2>REST API Projects</h2>
+                            <p>Authentication API, Payment API, User Management API, etc.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 <script>
     const lightIcon = document.getElementById('lightIcon');
@@ -107,33 +123,72 @@
     });
 
 
-    const buttons = document.querySelectorAll(".tab-btn");
-        const projects = document.querySelectorAll(".project-card");
-
-        buttons.forEach(button => {
-            button.addEventListener("click", () => {
-
-                // Remove active class
-                buttons.forEach(btn => btn.classList.remove("active"));
-
-                // Add active class
-                button.classList.add("active");
-
-                const filter = button.dataset.filter;
-
-                projects.forEach(project => {
-
-                    if (
-                        filter === "all" ||
-                        project.classList.contains(filter)
-                    ) {
-                        project.style.display = "block";
-                    } else {
-                        project.style.display = "none";
-                    }
-                });
-            });
+   
+</script>
+<script>
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
     });
+});
+</script>
+<script>
+    function showCategory(categoryId, btn) {
+    // Hide all categories
+    document.querySelectorAll('.category').forEach(function (item) {
+        item.classList.remove('active');
+    });
+
+    // Show selected category
+    document.getElementById(categoryId).classList.add('active');
+
+    // Remove active class from all buttons
+    document.querySelectorAll('.category-buttons button').forEach(function (button) {
+        button.classList.remove('active');
+    });
+
+    // Add active class to clicked button
+    btn.classList.add('active');
+}
+</script>
+<script>
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
+});
 </script>
 
 </html>
